@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
-// export const BASE_API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
-export const BASE_API_URL = `https://api.tvmaze.com/search/shows?q=`;
+export const BASE_API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 const useFetch = (apiParams) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +27,7 @@ const useFetch = (apiParams) => {
 
   useEffect(() => {
     let timerId = setTimeout(() => {
-      getMovies(`${BASE_API_URL}${apiParams}`);
+      getMovies(`${BASE_API_URL}&s=${apiParams}`);
     }, 400);
     return () => {
       clearTimeout(timerId);
